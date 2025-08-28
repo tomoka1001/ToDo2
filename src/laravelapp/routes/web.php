@@ -18,5 +18,6 @@ Route::get('/', function () {
 // getメソッドで/folders/{id}/tasksにリクエストがきたらTaskControllerコントローラーのindexメソッドを呼びだす
 Route::get('/folders/{id}/tasks', 'TaskController@index')->name('tasks.index');
 
+// フォルダ新規作成
 Route::get('/folders/create', 'FolderController@showCreateForm')->name('folders.create');
 Route::post('/folders/create', 'FolderController@create');
