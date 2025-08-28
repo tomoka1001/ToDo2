@@ -13,7 +13,7 @@ class FolderController extends Controller
         return view('folders/create');
     }
 
-    // 引数にインポートしたCreateFolderクラスを受け入れる. CreateFolderクラスのインスタンス$requestに詰めて引数として情報を渡す
+    // 引数にインポートしたCreateFolderクラスを受け入れる. CreateFolderクラスのインスタンス$requestに値を入れて引数として情報を渡す
     public function create(CreateFolder $request)
     {
         // フォルダモデルのインスタンスを作成

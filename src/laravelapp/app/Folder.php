@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+// Taskモデルファイルがある場所
 use App\Task;
 
 //  foldersテーブルに対応
@@ -19,3 +20,4 @@ class Folder extends Model
         // 第三引数はモデルにhasManyが定義されている側のテーブルが持つ、外部キーに紐づけられたカラムの名前。第二引数がテーブル名単数形_idで第三引数が idであれば省略できる。
     }
 }
+    

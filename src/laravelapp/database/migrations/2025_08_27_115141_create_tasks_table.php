@@ -11,9 +11,12 @@ class CreateTasksTable extends Migration
      *
      * @return void
      */
+    // upメソッドにはマイグレート実行時に行うこと
     public function up()
     {
         Schema::create('tasks', function (Blueprint $table) {
+            // $table->データ型('カラム名')->カラム修飾子
+
             // 符号なしINTを使用した自動増分ID（主キー）
             $table->increments('id');
             // 整数型　カラム名folder_id　　unsigned()は符号無し（正数）
@@ -40,6 +43,7 @@ class CreateTasksTable extends Migration
      *
      * @return void
      */
+    // downメソッドには処理を取り消すときに行うこと
     public function down()
     {
         Schema::dropIfExists('tasks');
