@@ -31,6 +31,7 @@
                     <div class="panel-heading">タスク</div>
                     <div class="panel-body">
                         <div class="text-right">
+                            {{-- tasks.createにとぶ current_folder_idはfolderのid--}}
                             <a href="{{ route('tasks.create', ['id' => $current_folder_id]) }}" class="btn btn-default btn-block">
                                 タスクを追加する
                             </a>
@@ -58,7 +59,7 @@
                                     </td>
                                     {{-- tasksテーブルのdue_date(期限) --}}
                                     <td>{{ $task->formatted_due_date }}</td>
-                                    <td><a href="#">編集</a></td>
+                                    <td><a href="{{ route('tasks.edit', ['id' => $task->folder_id, 'task_id' => $task->id]) }}">編集</a></td>
                                 </tr>
                             @endforeach
                         </tbody>

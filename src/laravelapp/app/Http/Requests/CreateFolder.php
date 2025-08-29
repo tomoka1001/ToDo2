@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class CreateFolder extends FormRequest
 {
-    // 日本語に変換
+    // 日本語に変換 バリデーションエラーがあった場合表示するのに使う
     public function attributes()
     {
         return [
@@ -30,7 +30,7 @@ class CreateFolder extends FormRequest
      *
      * @return array
      */
-    // ruleメソッドで、入力欄ごとにチェックするルールを定義する。
+    // ruleメソッドで、入力欄ごとにチェックするルールを定義する。　バリデーション
     public function rules()
     {
         return [

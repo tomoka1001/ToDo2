@@ -19,7 +19,7 @@ class FoldersTableSeeder extends Seeder
         $titles = ['プライベート', '仕事', '旅行'];
 
         foreach ($titles as $title) {
-            // foldersテーブルに上で定義した$titlesをforeachで１つずつ取り出してinsertする
+            // foldersテーブルに$titlesをforeachで１つずつ取り出してinsertする
             DB::table('folders')->insert([
                 'title' => $title,
                 // Carbon::now(),は現在の日時を取得

@@ -39,7 +39,25 @@ class Task extends Model
         if (!isset(self::STATUS[$status])) {
             return '';
         }
-        // 定義されていれば[$status]['class']を返す
+        // 定義されていれば[$status]['label']を返す
+        return self::STATUS[$status]['label'];
+    }
+
+    /**
+     * 状態を表すHTMLクラス
+     * @return string
+     */
+    // 色分け
+    public function getStatusClassAttribute()
+    {
+        // 状態値
+        $status = $this->attributes['status'];
+
+        // 定義されていなければ空文字を返す
+        if (!isset(self::STATUS[$status])) {
+            return '';
+        }
+
         return self::STATUS[$status]['class'];
     }
 

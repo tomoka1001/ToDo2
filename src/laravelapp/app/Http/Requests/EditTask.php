@@ -7,6 +7,7 @@ use Illuminate\Validation\Rule;
 
 class EditTask extends CreateTask
 {
+    // バリデーション
     public function rules()
     {
         $rule = parent::rules();
@@ -18,6 +19,7 @@ class EditTask extends CreateTask
         ];
     }
 
+    // エラー表示
     public function attributes()
     {
         $attributes = parent::attributes();
@@ -27,6 +29,7 @@ class EditTask extends CreateTask
         ];
     }
 
+    // エラーメッセージ
     public function messages()
     {
         $messages = parent::messages();

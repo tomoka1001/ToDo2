@@ -1,3 +1,4 @@
+{{-- レイアウトファイルを使用することを宣言  --}}
 @extends('layout')
 
 @section('content')
@@ -7,16 +8,20 @@
                 <nav class="panel panel-default">
                     <div class="panel-heading">フォルダを追加する</div>
                     <div class="panel-body">
+                        {{-- バリデーションエラーがあれば --}}
                         @if($errors->any())
                             <div class="alert alert-danger">
                             <ul>
+                                {{-- エラーメッセージ表示 --}}
                                 @foreach($errors->all() as $message)
                                 <li>{{ $message }}</li>
                                 @endforeach
                             </ul>
                             </div>
                         @endif
+                        {{-- フォルデー作成ページにとぶ --}}
                         <form action="{{ route('folders.create') }}" method="post">
+                            {{-- method=post,getの場合csrfいる --}}
                             @csrf
                             <div class="form-group">
                                 <label for="title">フォルダ名</label>

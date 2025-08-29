@@ -21,6 +21,7 @@ class CreateTask extends FormRequest
      *
      * @return array
      */
+    // バリデーションルール
     public function rules()
     {
         return [
@@ -31,6 +32,7 @@ class CreateTask extends FormRequest
         ];
     }
 
+    // エラーがあった場合に表示する項目
     public function attributes()
     {
         return [
@@ -39,6 +41,7 @@ class CreateTask extends FormRequest
         ];
     }
 
+    // エラーメッセージ
     public function messages()
     {
         // キーでメッセージが表示されるべきルールを指定する。

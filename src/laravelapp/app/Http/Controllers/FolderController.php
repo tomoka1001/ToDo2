@@ -16,7 +16,7 @@ class FolderController extends Controller
     // 引数にインポートしたCreateFolderクラスを受け入れる. CreateFolderクラスのインスタンス$requestに値を入れて引数として情報を渡す
     public function create(CreateFolder $request)
     {
-        // フォルダモデルのインスタンスを作成
+        // フォルダモデル(設計)のインスタンス(物)を作成
         $folder = new Folder();
 
         // タイトルに入力値を代入する

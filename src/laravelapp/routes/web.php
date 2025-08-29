@@ -37,5 +37,5 @@ Route::post('/folders/{id}/tasks/create', 'TaskController@create');
 
 // タスク編集
 Route::get('/folders/{id}/tasks/{task_id}/edit', 'TaskController@showEditForm')->name('tasks.edit');
-// タスク編集技保存
+// タスク編集保存
 Route::post('/folders/{id}/tasks/{task_id}/edit', 'TaskController@edit');

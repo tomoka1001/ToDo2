@@ -19,12 +19,13 @@
                         {{-- バリデーションエラー --}}
                         @if($errors->any())
                             <div class="alert alert-danger">
+                                {{-- エラーがあればメッセージ表示 --}}
                                 @foreach($errors->all() as $message)
                                     <p>{{ $message }}</p>
                                 @endforeach
                             </div>
                         @endif
-                        {{-- formのaction属性にはroute関数 --}}
+                        {{-- formのaction属性にはroute関数 タスクの登録にフォルダーのIDがいるからとばす--}}
                         <form action="{{ route('tasks.create', ['id' => $folder_id]) }}" method="POST">
                         {{-- methodがPOST、GETの時はCSRFがいる --}}
                         @csrf

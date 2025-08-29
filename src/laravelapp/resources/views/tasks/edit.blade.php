@@ -1,3 +1,4 @@
+{{-- レイアウトファイルを使用することを宣言  --}}
 @extends('layout')
 
 @section('styles')
@@ -25,15 +26,19 @@
                         @csrf
                             <div class="form-group">
                                 <label for="title">タイトル</label>
+                                {{-- old関数の第二引数を指定するとそれがデフォルト値になる --}}
                                 <input type="text" class="form-control" name="title" id="title"
-                                    value="{{ old('title') ?? $task->title }}" />
+                                    value="{{ old('title') , $task->title }}" />
                             </div>
                             <div class="form-group">
                                 <label for="status">状態</label>
                                 <select name="status" id="status" class="form-control">
+                                    {{-- Taskモデルで定義した配列定数STATUSを@foreachでループ 
+                                            option要素のvalueに配列のキー1, 2, 3の値を入れている--}}
                                 @foreach(\App\Task::STATUS as $key => $val)
                                     <option
                                         value="{{ $key }}"
+                                        {{-- セレクトボックスはselected属性の置かれたoption要素が初期表示で選択状態となります。 --}}
                                         {{ $key == old('status', $task->status) ? 'selected' : '' }}
                                     >
                                     {{ $val['label'] }}

@@ -16,6 +16,7 @@ class CreateFoldersTable extends Migration
         Schema::create('folders', function (Blueprint $table) {
             // $table->データ型('カラム名')->カラム修飾子
             // 主キーのデフォルトが、increments()からbigIncrements()になった
+            
             // 符号なしINTを使用した自動増分ID（主キー）
             $table->increments('id');
             // string型(文字列型)
