@@ -1,5 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,15 +12,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // Route::HTTPメソッド('URL', ’コントローラー＠メソッド')->name('ルート名');
 // get　ページ表示
 // poat　データ保存
 // put または　patch　データ更新
 // delete　データ削除
+
+// 会員登録・ログイン・ログアウト・パスワード再設定の各機能で必要なルーティング設定をすべて定義している
+Auth::routes();
+
+// トップページ
+Route::get('/', 'HomeController@index')->name('home');
 
 // getメソッドで/folders/{id}/tasksにリクエストがきたらTaskControllerコントローラーのindexメソッドを呼びだす
 // フォルダ、タスク一覧表示画面

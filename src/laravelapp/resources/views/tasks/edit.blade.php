@@ -26,7 +26,8 @@
                         @csrf
                             <div class="form-group">
                                 <label for="title">タイトル</label>
-                                {{-- old関数の第二引数を指定するとそれがデフォルト値になる --}}
+                                {{-- valueでタスクの情報を受け取る。
+                                    old関数の第二引数を指定するとそれがデフォルト値になる --}}
                                 <input type="text" class="form-control" name="title" id="title"
                                     value="{{ old('title') , $task->title }}" />
                             </div>
@@ -35,12 +36,17 @@
                                 <select name="status" id="status" class="form-control">
                                     {{-- Taskモデルで定義した配列定数STATUSを@foreachでループ 
                                             option要素のvalueに配列のキー1, 2, 3の値を入れている--}}
+                                    {{-- Taskモデルで定義した配列STATUS as $キー => 値
+                                        ダブルアロー演算子は連想配列を取り扱うとき、アローを実装するときに使う
+                                        アロー演算子はプロパティやメソッドにアクセスするときに使う--}}
                                 @foreach(\App\Task::STATUS as $key => $val)
                                     <option
+                                        {{-- 1,2,3が入る --}}
                                         value="{{ $key }}"
                                         {{-- セレクトボックスはselected属性の置かれたoption要素が初期表示で選択状態となります。 --}}
                                         {{ $key == old('status', $task->status) ? 'selected' : '' }}
                                     >
+                                    {{-- labelの値の未着手、着手中、完了のどれかが入る --}}
                                     {{ $val['label'] }}
                                     </option>
                                 @endforeach
@@ -49,7 +55,7 @@
                             <div class="form-group">
                                 <label for="due_date">期限</label>
                                 <input type="text" class="form-control" name="due_date" id="due_date"
-                                    value="{{ old('due_date') ?? $task->formatted_due_date }}" />
+                                    value="{{ old('due_date', $task->formatted_due_date) }}" />
                             </div>
                             <div class="text-right">
                                 <button type="submit" class="btn btn-primary">送信</button>

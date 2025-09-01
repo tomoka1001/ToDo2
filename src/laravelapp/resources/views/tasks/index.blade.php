@@ -59,6 +59,7 @@
                                     </td>
                                     {{-- tasksテーブルのdue_date(期限) --}}
                                     <td>{{ $task->formatted_due_date }}</td>
+                                    {{-- idはフォルダーのID、task_いどはタスクのID --}}
                                     <td><a href="{{ route('tasks.edit', ['id' => $task->folder_id, 'task_id' => $task->id]) }}">編集</a></td>
                                 </tr>
                             @endforeach

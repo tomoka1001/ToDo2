@@ -15,6 +15,10 @@ class FoldersTableSeeder extends Seeder
     // run メソッドの中にデータを挿入するコードを記述する
     public function run()
     {
+        // firstメソッドでユーザーを一行だけ取得してそのIDをuser_idの値に指定
+        // firstメソッドは配列の要素を取り出すときにその配列の中の最初の要素を取得するメソッド。
+        $user = DB::table('users')->first(); // ★
+
         // プライベート、仕事、旅行という三つのフォルダを作る
         $titles = ['プライベート', '仕事', '旅行'];
 
@@ -22,6 +26,7 @@ class FoldersTableSeeder extends Seeder
             // foldersテーブルに$titlesをforeachで１つずつ取り出してinsertする
             DB::table('folders')->insert([
                 'title' => $title,
+                'user_id' => $user->id,
                 // Carbon::now(),は現在の日時を取得
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),

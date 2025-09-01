@@ -73,12 +73,13 @@ class TaskController extends Controller
         // 選択したタスクを取得
         $task = Task::find($task_id);       
 
+        // 選択したタスクの情報を渡す
         return view('tasks/edit', [
             'task' => $task,
         ]);
     }
 
-    // $idはフォルダーのID,$task_idはタスクのID,EditTask $requestバリデーション
+    // $idはフォルダーのID,$task_idはタスクのID,EditTask $requestはバリデーション
     public function edit(int $id, int $task_id, EditTask $request)
     {
         // 1
@@ -93,7 +94,7 @@ class TaskController extends Controller
         $task->save();
 
         // 3
-        
+        // フォルダIDを持ってタスク一覧画面へリダイレクト
         return redirect()->route('tasks.index', [
             'id' => $task->folder_id,
         ]);
