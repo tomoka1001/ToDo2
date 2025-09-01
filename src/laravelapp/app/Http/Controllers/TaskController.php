@@ -7,6 +7,7 @@ use App\Task;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateTask;
 use App\Http\Requests\EditTask;
+use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
@@ -14,6 +15,9 @@ class TaskController extends Controller
     // コントローラーメソッドの引数としてidを受け取る。　引数名はルーティングで定義した波括弧内の値と同じじゃないとダメ
     public function index(int $id)
     {
+        // ユーザーのフォルダを取得する
+        $folders = Auth::user()->folders()->get();
+
         // Folderモデル　allクラスメソッドですべてのfoldersデータをデータベースから取得
         $folders = Folder::all();
 
