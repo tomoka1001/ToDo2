@@ -18,7 +18,7 @@ class TaskController extends Controller
         // ユーザーのフォルダを取得する
         $folders = Auth::user()->folders()->get();
 
-        // Folderモデル　allクラスメソッドですべてのfoldersデータをデータベースから取得
+        // allクラスメソッドですべてのfoldersデータをデータベースから取得
         $folders = Folder::all();
 
         // 選ばれたフォルダを取得

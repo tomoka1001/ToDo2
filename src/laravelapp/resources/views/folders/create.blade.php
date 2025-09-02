@@ -19,7 +19,7 @@
                             </ul>
                             </div>
                         @endif
-                        {{-- フォルデー作成ページにとぶ --}}
+                        {{-- フォルデー作成(保存)処理に行く --}}
                         <form action="{{ route('folders.create') }}" method="post">
                             {{-- method=post,getの場合csrfいる --}}
                             @csrf

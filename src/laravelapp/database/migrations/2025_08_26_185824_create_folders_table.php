@@ -13,6 +13,7 @@ class CreateFoldersTable extends Migration
      */
     public function up()
     {
+        // Schema::createテーブルを作成するメソッド　'folders'テーブル名　function (Blueprint $table)コールバック関数　カラム名をインデックスとして扱う連想配列$tableが作成しているイメージ？
         Schema::create('folders', function (Blueprint $table) {
             // $table->データ型('カラム名')->カラム修飾子
             // 主キーのデフォルトが、increments()からbigIncrements()になった

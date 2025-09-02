@@ -30,7 +30,7 @@ class FolderController extends Controller
         $folder->save();
 
         // web.phpで決めたnameを指定
-        return redirect()->route('folders/create', [
+        return redirect()->route('tasks.index', [
             'id' => $folder->id,
         ]);
     }

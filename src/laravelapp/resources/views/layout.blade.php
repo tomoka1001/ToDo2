@@ -14,14 +14,17 @@
     <nav class="my-navbar">
         <a class="my-navbar-brand" href="/">ToDo App</a>
         <div class="my-navbar-control">
-            {{-- ログインをしているかチェック --}}
+            {{-- Authクラスのcheckメソッドでログインをしているかチェック 
+                もしログインをしていたら--}}
             @if(Auth::check())
+                {{-- ユーザーの名前表示 --}}
                 <span class="my-navbar-item">ようこそ, {{ Auth::user()->name }}さん</span>
                 ｜
                 <a href="#" id="logout" class="my-navbar-item">ログアウト</a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
                 </form>
+            {{-- ログインできていなければログインか会員登録画面に行く --}}
             @else
                 <a class="my-navbar-item" href="{{ route('login') }}">ログイン</a>
                 ｜
@@ -34,8 +37,10 @@
     {{-- mainのコードが入る --}}
     @yield('content')
 </main>
+{{-- もしログインがtrueであれば --}}
 @if(Auth::check())
     <script>
+        // ログアウトボタンが押されたら
         document.getElementById('logout').addEventListener('click', function(event) {
             event.preventDefault();
             document.getElementById('logout-form').submit();

@@ -4,6 +4,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
+// FoldersTableSeederクラス　Seeder継承
 class FoldersTableSeeder extends Seeder
 {
     /**
@@ -12,7 +13,7 @@ class FoldersTableSeeder extends Seeder
      * @return void
      */
 
-    // run メソッドの中にデータを挿入するコードを記述する
+    // runメソッドの中にデータを挿入するコードを記述する
     public function run()
     {
         // firstメソッドでユーザーを一行だけ取得してそのIDをuser_idの値に指定
@@ -23,7 +24,7 @@ class FoldersTableSeeder extends Seeder
         $titles = ['プライベート', '仕事', '旅行'];
 
         foreach ($titles as $title) {
-            // foldersテーブルに$titlesをforeachで１つずつ取り出してinsertする
+            // foldersテーブルに１つずつ取り出してinsertする
             DB::table('folders')->insert([
                 'title' => $title,
                 'user_id' => $user->id,

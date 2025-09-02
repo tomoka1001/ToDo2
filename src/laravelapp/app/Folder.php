@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 // Taskモデルファイルがある場所
 use App\Task;
 
-//  foldersテーブルに対応
+//  foldersテーブルに対応 継承元Modelクラス
 class Folder extends Model
 {
     public function tasks()
