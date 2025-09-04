@@ -34,6 +34,7 @@
                             {{-- Laravelにはconfirmedルールというバリデーションルールが実装されている。
                             このルールはある項目(仮にabcとする)とその項目名+_confirmationという名前の項目(abc_confirmation)の入力値が一致することを検証します。 --}}
                             <div class="form-group">
+                                {{-- confirmedルール nameに書く--}}
                                 <label for="password-confirm">パスワード（確認）</label>
                                 <input type="password" class="form-control" id="password-confirm" name="password_confirmation">
                             </div>

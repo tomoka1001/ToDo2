@@ -25,6 +25,7 @@ class ResetPasswordController extends Controller
      *
      * @var string
      */
+    // パスワードの再設定ができたらトップページにリダイレクト
     protected $redirectTo = '/';
 
     /**

@@ -26,24 +26,26 @@ Route::group(['middleware' => 'auth'], function() {
     // トップページ
     Route::get('/', 'HomeController@index')->name('home');
 
-    // getメソッドで/folders/{id}/tasksにリクエストがきたらTaskControllerコントローラーのindexメソッドを呼びだす
-    // フォルダ、タスク一覧表示画面
-    Route::get('/folders/{id}/tasks', 'TaskController@index')->name('tasks.index');
-
     // フォルダ作成画面表示
     Route::get('/folders/create', 'FolderController@showCreateForm')->name('folders.create');
     // フォルダ保存
     Route::post('/folders/create', 'FolderController@create');
 
-    // タスク作成画面表示
-    Route::get('/folders/{id}/tasks/create', 'TaskController@showCreateForm')->name('tasks.create');
-    // タスク保存
-    Route::post('/folders/{id}/tasks/create', 'TaskController@create');
+    Route::group(['middleware' => 'can:view,folder'], function() {
+        // getメソッドで/folders/{id}/tasksにリクエストがきたらTaskControllerコントローラーのindexメソッドを呼びだす
+        // フォルダ、タスク一覧表示画面
+        Route::get('/folders/{folder}/tasks', 'TaskController@index')->name('tasks.index');
 
-    // タスク編集
-    Route::get('/folders/{id}/tasks/{task_id}/edit', 'TaskController@showEditForm')->name('tasks.edit');
-    // タスク編集保存
-    Route::post('/folders/{id}/tasks/{task_id}/edit', 'TaskController@edit');
+        // タスク作成画面表示
+        Route::get('/folders/{folder}/tasks/create', 'TaskController@showCreateForm')->name('tasks.create');
+        // タスク保存
+        Route::post('/folders/{folder}/tasks/create', 'TaskController@create');
+
+        // タスク編集
+        Route::get('/folders/{folder}/tasks/{task}/edit', 'TaskController@showEditForm')->name('tasks.edit');
+        // タスク編集保存
+        Route::post('/folders/{folder}/tasks/{task}/edit', 'TaskController@edit');
+    });
 });
 
 // 会員登録・ログイン・ログアウト・パスワード再設定の各機能で必要なルーティング設定をすべて定義している

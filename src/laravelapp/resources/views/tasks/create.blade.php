@@ -52,8 +52,10 @@
 @section('scripts')
 <!-- flatpickrスクリプト -->
 <script src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js"></script>
+
 <!-- 日本語化のための追加スクリプト -->
 <script src="https://npmcdn.com/flatpickr/dist/l10n/ja.js"></script>
+
 <script>
     // 第一引数にflatpickrで日付選択を行わせたい要素を指定、第二引数にオプション設定
     flatpickr(document.getElementById('due_date'), {

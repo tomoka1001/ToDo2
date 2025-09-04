@@ -9,6 +9,7 @@
                     <div class="panel-body">
                         <form action="{{ route('password.update') }}" method="POST">
                         @csrf
+                        <input type="hidden" name="token" value="{{ '$token' }}">
                             <div class="form-group">
                                 <label for="email">メールアドレス</label>
                                 <input type="text" class="form-control" id="email" name="email" />

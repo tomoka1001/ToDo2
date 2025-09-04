@@ -31,7 +31,12 @@ class ResetPassword extends Mailable
     public function build()
     {
         return $this
+            // subject('')メソッド メールのタイトルを指定、subject('お問い合わせ')
             ->subject('パスワード再設定')
-            ->view('mail.password-reset');
+            // view('ビュー')メール本文となるビューを指定、view('emails.text')
+            // view('フォルダ名.ファイル名', 使いたい配列)
+            ->view('mail.password-reset')
+            // with([])	データを渡す with(['orderName' => $this->order->name])
+            ->with(['token' => $this->token,]);
     }
 }

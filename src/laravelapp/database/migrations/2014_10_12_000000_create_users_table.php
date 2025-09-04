@@ -17,8 +17,10 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
+            // nullable nullを許可
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            // ログインしているかどうか
             $table->rememberToken();
             $table->timestamps();
         });

@@ -19,7 +19,7 @@ class CreateFolder extends FormRequest
      *
      * @return bool
      */
-    //  メソッドはリクエストの内容に基づいた権限チェックのために使う
+    // authorizeメソッドはリクエストの内容に基づいた権限チェックのために使う
     public function authorize()
     {
         return true;
@@ -34,6 +34,7 @@ class CreateFolder extends FormRequest
     public function rules()
     {
         return [
+            // 入力必須、最大20文字以内
             'title' => 'required|max:20',
         ];
     }

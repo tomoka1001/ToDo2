@@ -16,7 +16,8 @@
                         @foreach($folders as $folder)
                             {{-- route関数はURLを作成する。　tasks.indexはweb.phpで指定したname $folder->idはfoldersテーブルのIDカラム(数値)--}}
                             <a href="{{ route('tasks.index', ['id' => $folder->id]) }}" 
-                                {{-- 選択したfolderのID($current_folder_id)が、$folder->idと一致したら--}}
+                                {{-- 選択したfolderのID($current_folder_id)が、$folder->idと一致したら背景色を変える　
+                                        三項演算子　条件式 ? 真の式 : 偽の式--}}
                                 class="list-group-item {{ $current_folder_id === $folder->id ? 'active' : '' }}">
                                 {{-- foldersのtitleカラムを指してる --}}
                                 {{ $folder->title }}

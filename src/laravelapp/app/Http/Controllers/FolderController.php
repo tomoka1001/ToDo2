@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class FolderController extends Controller
 {
+    // フォルダー作成画面
     public function showCreateForm()
     {
         return view('folders/create');

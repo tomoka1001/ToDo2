@@ -30,16 +30,22 @@ class Task extends Model
 
     // 状態のラベル
     // @return string
+    // アクセサ　get⚪︎⚪︎⚪︎Attribute
     public function getStatusLabelAttribute()
     {
-        // 状態値 statusカラムの値を習得
+        // 状態値 statusカラムの値を習得　attributes属性
+        // $thisはインスタンスメソッド内でのみ利用できる特別なメソッドで、現在のインスタンスを指します。
+        // $thisインスタンス化されているメソッドやプロパティを呼び出す時に使用する
         $status = $this->attributes['status'];
 
         // 定義されていなければ空文字を返す
+        // self::は、自クラスを示す。
+        // static変数はインスタンス化せずに使用します。この場合$thisは使用できません。 self::静的メソッドや静的プロパティを呼び出す時に使用する
+        // Taskモデルクラスで定義されている変数STATUSをself::を使って呼び出している
+        // 定義されていれば[$status]['label']を返す
         if (!isset(self::STATUS[$status])) {
             return '';
         }
-        // 定義されていれば[$status]['label']を返す
         return self::STATUS[$status]['label'];
     }
 
@@ -57,10 +63,10 @@ class Task extends Model
         if (!isset(self::STATUS[$status])) {
             return '';
         }
-
         return self::STATUS[$status]['class'];
     }
 
+    
     // 成形した期限日
     // @return string
 

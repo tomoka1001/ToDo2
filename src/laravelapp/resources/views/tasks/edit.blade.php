@@ -28,8 +28,7 @@
                                 <label for="title">タイトル</label>
                                 {{-- valueでタスクの情報を受け取る。
                                     old関数の第二引数を指定するとそれがデフォルト値になる --}}
-                                <input type="text" class="form-control" name="title" id="title"
-                                    value="{{ old('title') , $task->title }}" />
+                                <input type="text" class="form-control" name="title" id="title"  value="{{ old('title', $task->title) }}" />
                             </div>
                             <div class="form-group">
                                 <label for="status">状態</label>

@@ -28,6 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
+    // 会員登録が成功したらトップページにリダイレクトする
     protected $redirectTo = '/';
 
     /**
@@ -46,6 +47,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+    // validatorメソッドでバリデーションを定義する
     protected function validator(array $data)
     {
         // makeメソッドの第一引数は検証するデータ、第二引数がルール定義、第三引数がメッセージ定義、第四引数が項目名定義です
@@ -53,6 +55,7 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             // uniqueは重複チェック　参照するテーブルusers
             'email' => 'required|string|email|max:255|unique:users',
+            // confirmedは確認用のフィールドと一致しているかどうかをみる
             'password' => 'required|string|min:6|confirmed',
         ], [], [
             'name' => 'ユーザー名',

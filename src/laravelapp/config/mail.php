@@ -55,6 +55,7 @@ return [
     |
     */
 
+    // fromメソッド送信元のアドレスと送信名を指定する
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
         'name' => env('MAIL_FROM_NAME', 'Example'),
